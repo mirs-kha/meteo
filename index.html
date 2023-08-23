@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 
+
 <body>
     <style>
         ul {
@@ -57,15 +58,14 @@
             overflow: hidden;
             background-color: #ffffff;
         }
-        #optionslist{
+
+        #optionslist {
             padding: 20px;
-    border-bottom: solid 1px #dddddd;
+            border-bottom: solid 1px #dddddd;
         }
     </style>
     <div class="favoris">
-
-
-        <button type="button" class="collapsible">Ville(s) favorite(s)</button>
+        <button type="button" class="collapsible active">Ville(s) favorite(s)</button>
         <div class="content">
             <ul id="cookie-list">
                 <div id="villes"></div>
@@ -73,16 +73,11 @@
                 <div id="optionslist"></div>
             </ul>
         </div>
-
-        <h2>Ajouter une ville</h2>
-        <input type="data" id="input" placeholder="ex: marseille" />
-        <button id="add-btn">Ajouter</button>
-
-
-
-
-        
-        
+        <div class="ajout">
+            <h2>Ajouter une ville</h2>
+            <input type="data" id="input" placeholder="ex: marseille" />
+            <button id="add-btn">Ajouter</button>
+        </div>
 
         <button onclick="deleteAllCookies()">Tout supprimer</button>
     </div>
@@ -170,6 +165,14 @@
         var i;
 
         for (i = 0; i < coll.length; i++) {
+            var content = coll[i].nextElementSibling;
+
+            if (coll[i].classList.contains("active")) {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+
             coll[i].addEventListener("click", function () {
                 this.classList.toggle("active");
                 var content = this.nextElementSibling;
