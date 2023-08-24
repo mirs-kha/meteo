@@ -10,6 +10,41 @@ console.log(ressenti)
 
 
 
+  // Fonction pour afficher les cookies existants
+  function displayCookies() {
+    var cookieValues = []; // Un tableau pour stocker les valeurs des cookies
+
+    // Boucle à travers les cookies existants pour extraire leurs valeurs
+    for (let i = 0; i < pCOOKIES.length; i++) {
+        const cookiePair = pCOOKIES[i].split("="); // Divise la paire clé-valeur
+        if (cookiePair.length === 2) {
+            cookieValues.push(cookiePair[1]); // Ajoute la valeur du cookie au tableau
+        }
+    }
+
+    const output = document.getElementById("villes"); // afficher la liste de cookies
+
+    // Parcours les valeurs des cookies et les affiche sous forme d'éléments de liste
+    cookieValues.forEach(function (cookieValue) {
+        const listItem = document.createElement("li"); // Crée un élément de liste (li)
+        listItem.textContent = cookieValue; // Définit le texte de l'élément de liste comme la valeur du cookie
+
+        listItem.addEventListener("click", function () {
+            // Ajoutez un gestionnaire d'événements pour gérer le clic sur l'élément de la liste
+            alert(`La valeur du cookie est : ${cookieValue}`);
+        });
+        output.appendChild(listItem); // Ajoute chaque valeur comme un élément de liste
+    });
+    numberOfCookies = cookieValues.length; // Met à jour le nombre de cookies
+    console.log(`Il y a ${numberOfCookies} cookies.`);
+}
+
+
+
+
+
+
+
 
 fetch(myRequest1)
 .then(reponse => reponse.json())
@@ -107,34 +142,7 @@ fetch(myRequest2)
 
   displayCookies(); // appel de la fx displayCookies pour afficher les cookies existants
 
-  // Fonction pour afficher les cookies existants
-  function displayCookies() {
-      var cookieValues = []; // Un tableau pour stocker les valeurs des cookies
 
-      // Boucle à travers les cookies existants pour extraire leurs valeurs
-      for (let i = 0; i < pCOOKIES.length; i++) {
-          const cookiePair = pCOOKIES[i].split("="); // Divise la paire clé-valeur
-          if (cookiePair.length === 2) {
-              cookieValues.push(cookiePair[1]); // Ajoute la valeur du cookie au tableau
-          }
-      }
-
-      const output = document.getElementById("villes"); // afficher la liste de cookies
-
-      // Parcours les valeurs des cookies et les affiche sous forme d'éléments de liste
-      cookieValues.forEach(function (cookieValue) {
-          const listItem = document.createElement("li"); // Crée un élément de liste (li)
-          listItem.textContent = cookieValue; // Définit le texte de l'élément de liste comme la valeur du cookie
-
-          listItem.addEventListener("click", function () {
-              // Ajoutez un gestionnaire d'événements pour gérer le clic sur l'élément de la liste
-              alert(`La valeur du cookie est : ${cookieValue}`);
-          });
-          output.appendChild(listItem); // Ajoute chaque valeur comme un élément de liste
-      });
-      numberOfCookies = cookieValues.length; // Met à jour le nombre de cookies
-      console.log(`Il y a ${numberOfCookies} cookies.`);
-  }
 
   addBtn.addEventListener("click", addAnddisplay); // Ajoute un écouteur d'événements au bouton "Ajouter"
 
