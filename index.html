@@ -17,7 +17,23 @@
 
         <div class="town">
 
-            <h2>villes favorites :</h2>
+            <div class="favoris">
+                <button type="button" class="collapsible active">Ville(s) favorite(s)</button>
+                <div class="content">
+                    <ul id="cookie-list">
+                        <div id="villes"></div>
+                        <!-- Les éléments de liste seront ajoutés ici par JavaScript -->
+                        <div id="optionslist"></div>
+                    </ul>
+                </div>
+                <div class="ajout">
+                    <h2>Ajouter une ville</h2>
+                    <input type="data" id="input" placeholder="ex: marseille" />
+                    <button id="add-btn">Ajouter</button>
+                </div>
+        
+                <button onclick="deleteAllCookies()">Tout supprimer</button>
+            </div>
         </div>
 
         <div class="weather">
