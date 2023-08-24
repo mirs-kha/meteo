@@ -1,0 +1,92 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+.bg{
+    background: url(bgmeteo.png) center/cover;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.weather{
+
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    align-items: center;
+    }
+
+.temp{
+    position: relative;
+    text-align: center;
+    background-color: white;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+}
+
+.temperature{
+    font-size: 5rem;
+    line-height: 250px;
+    color: #df605b;
+
+}
+
+.ico{
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    top: 150px;
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 250px;
+
+}
+
+
+.ressenti{
+    margin-top: 80px;
+    text-align: center;
+    color: white;
+}
+
+.ville{
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+.ville h2{
+    font-size: 5rem;
+    font-weight: 1900;
+
+}
+
+
+#doubletest{
+    display: flex;
+    color: white;
+    text-align: center;
+    display: flex;
+    text-align: center;
+}
+
+
+.test{
+    width: 300px;
+    background: #1906267a;
+    height: 300px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+}
