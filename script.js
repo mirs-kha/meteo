@@ -77,6 +77,111 @@ fetch(myRequest2)
 
 
 
+  
+  var input = document.getElementById("input");
+  var inputArr = [];
+  var addBtn = document.getElementById("add-btn");
+  var display = document.getElementById("optionslist");
+  var count2 = 0; // Un compteur pour générer les clés des cookies
+  pCOOKIES = document.cookie.split("; "); // Sépare les cookies en un tableau
+
+  var numberOfCookies = 0; // Déclaration en dehors de toutes les fonctions
+  const output = document.getElementById("cookie-list"); // afficher la liste de cookies
+
+  function deleteAllCookies() {
+      // fx pour supp les cookies
+      var allCookies = document.cookie.split(";");
+
+      // The "expire" attribute of every cookie is
+      // Set to "Thu, 01 Jan 1970 00:00:00 GMT"
+      for (var i = 0; i < allCookies.length; i++)
+          document.cookie =
+              allCookies[i] + "=;expires=" + new Date(0).toUTCString();
+
+      output.innerHTML = document.cookie;
+  }
+
+  function deleteCookie(key) {
+      document.cookie = key + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT"; // Supprime le cookie en définissant une date d'expiration passée
+  }
+
+  displayCookies(); // appel de la fx displayCookies pour afficher les cookies existants
+
+  // Fonction pour afficher les cookies existants
+  function displayCookies() {
+      var cookieValues = []; // Un tableau pour stocker les valeurs des cookies
+
+      // Boucle à travers les cookies existants pour extraire leurs valeurs
+      for (let i = 0; i < pCOOKIES.length; i++) {
+          const cookiePair = pCOOKIES[i].split("="); // Divise la paire clé-valeur
+          if (cookiePair.length === 2) {
+              cookieValues.push(cookiePair[1]); // Ajoute la valeur du cookie au tableau
+          }
+      }
+
+      const output = document.getElementById("villes"); // afficher la liste de cookies
+
+      // Parcours les valeurs des cookies et les affiche sous forme d'éléments de liste
+      cookieValues.forEach(function (cookieValue) {
+          const listItem = document.createElement("li"); // Crée un élément de liste (li)
+          listItem.textContent = cookieValue; // Définit le texte de l'élément de liste comme la valeur du cookie
+
+          listItem.addEventListener("click", function () {
+              // Ajoutez un gestionnaire d'événements pour gérer le clic sur l'élément de la liste
+              alert(`La valeur du cookie est : ${cookieValue}`);
+          });
+          output.appendChild(listItem); // Ajoute chaque valeur comme un élément de liste
+      });
+      numberOfCookies = cookieValues.length; // Met à jour le nombre de cookies
+      console.log(`Il y a ${numberOfCookies} cookies.`);
+  }
+
+  addBtn.addEventListener("click", addAnddisplay); // Ajoute un écouteur d'événements au bouton "Ajouter"
+
+  function addAnddisplay() {
+      inputArr.push(input.value); // Ajoute la valeur de l'input dans le tableau inputArr
+      const userFav = document.createElement("div"); // Crée un élément div
+      userFav.setAttribute("id", `${numberOfCookies + 1}`); // Définit l'attribut ID de l'élément div avec la valeur du compteur
+      userFav.innerHTML = input.value; // Définit le contenu de l'élément div comme la valeur de l'input
+      document.cookie = `${numberOfCookies + 1}=${input.value}`; // Crée un cookie avec la clé basée sur le compteur
+      userFav.addEventListener("click", function () {
+          // Ajoutez un gestionnaire d'événements pour gérer le clic sur l'élément de la liste
+          alert(`La valeur du cookie est : ${input.value}`);
+      });
+      optionslist.append(userFav); // Ajoute l'élément div à la liste d'options
+      numberOfCookies++; // Incrémente la variable globale
+      count2++; // Incrémente le compteur pour la prochaine clé de cookie
+
+      // Affiche le nombre de cookies mis à jour après l'ajout
+      console.log(numberOfCookies + 1);
+  }
+
+  //collapse
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+      var content = coll[i].nextElementSibling;
+
+      if (coll[i].classList.contains("active")) {
+          content.style.display = "block";
+      } else {
+          content.style.display = "none";
+      }
+
+      coll[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "block") {
+              content.style.display = "none";
+          } else {
+              content.style.display = "block";
+          }
+      });
+  }
+
+
+
 
 
 
