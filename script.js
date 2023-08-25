@@ -137,7 +137,7 @@ fetch(myRequest1)
 
 
 
-const myRequest2 = new Request("http://api.openweathermap.org/data/2.5/forecast?q=rouen&appid=ea54d3f7f009441e82ecb645fb071f6c&lang=fr&units=metric")
+const myRequest2 = new Request("https://api.openweathermap.org/data/2.5/forecast?q=rouen&appid=ea54d3f7f009441e82ecb645fb071f6c&lang=fr&units=metric")
 fetch(myRequest2)
   .then(reponse => reponse.json())
   .then((data) => {
