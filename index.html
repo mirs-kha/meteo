@@ -11,7 +11,7 @@
 
 <body>
 
-    <div class="bg">
+    <div class="bg" id="moment">
 
 
 
@@ -29,10 +29,11 @@
                 <div class="ajout">
                     <h2>Ajouter une ville</h2>
                     <input type="data" id="input" placeholder="ex: marseille" />
-                    <button id="add-btn">Ajouter</button>
+                    <button class="remove" id="add-btn">Ajouter</button>
                 </div>
-        
-                <button onclick="deleteAllCookies()">Tout supprimer</button>
+                <div class="supp">
+                <button class="remove" onclick="deleteAllCookies()">Tout supprimer</button>
+                </div>
             </div>
         </div>
 
