@@ -199,7 +199,7 @@ li {
     
     .bg{
         background: url(mobil.png) center/cover;
-        min-height: 120vh;
+        height: 108vh;
 
     }
 
@@ -208,7 +208,7 @@ li {
     }
 
     .ressenti {
-        margin-top: -291px;
+        margin-top: 157px;
         text-align: center;
         color: #190626;
     }
@@ -228,6 +228,12 @@ li {
         width: 250px;
         border-radius: 50%;
     }
+
+    .doubletest{
+        width: 100vw;
+        overflow: auto;
+    }
+
 
 
  }
