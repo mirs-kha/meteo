@@ -199,14 +199,22 @@ li {
     
     .bg{
         background: url(mobil.png) center/cover;
-        width: 100vw;
-        min-height: 100vh;
-        display: block;
 
     }
 
     .town{
         display: none;
+    }
+
+    .ressenti {
+        margin-top: 226px;
+        text-align: center;
+        color: #190626;
+    }
+
+    .ville {
+        color: #750f36;
+
     }
     
 
