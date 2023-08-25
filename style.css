@@ -199,6 +199,7 @@ li {
     
     .bg{
         background: url(mobil.png) center/cover;
+        min-height: 120vh;
 
     }
 
@@ -207,7 +208,7 @@ li {
     }
 
     .ressenti {
-        margin-top: 226px;
+        margin-top: -291px;
         text-align: center;
         color: #190626;
     }
