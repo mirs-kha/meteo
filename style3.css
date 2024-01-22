@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.all {
+    display: flex;
+    font-family: Nunito;
+}
+
+.contenu {
+    width: 100%;
+}
+
+.contenuetdroite {
+    width: 100%;
+    display: flex;
+}
+
+input[type=text] {
+    appearance: none;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    outline: none;
+    border-bottom: 0.2em solid rgb(22, 27, 95);
+    border-radius: 0.2em 0.2em 0px 0px;
+    padding: 0.6em;
+    width: 80%;
+    margin-bottom: 50px;
+    color: rgb(22, 27, 95);
+}
+
+
+input[type=button] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background: rgba(0, 0, 0, 0);
+    padding: 0.85em 1.5em;
+    color: #161B5F;
+    border-radius: 0.4em;
+    transition: 1s;
+    margin-left: 20px;
+    input[type=button]:focus,
+    input[type=button]:active {
+        background: #161B5F;
+    color: #fff;
+    }
+;
+    margin-left: 1;
+}
+
+.btn {
+    display: inline-block;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    transition: all 200ms ease-in;
+    cursor: pointer;
+}
+
+.btn--primary {
+    background: #7f8ff4;
+    color: #fff;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    padding: 12px 36px;
+}
+
+.btn--primary:hover {
+    background: #2b2f6b;
+    color: white;
+}
+
+.btn--primary:active {
+    background: #7f8ff4;
+    box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.menu {
+    width: 14%;
+    height: 100vh;
+    background-color: #050724;
+    margin-right: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 10px;
+    height: 80px;
+    line-height: 80px;
+    width: 100%;
+    text-align: center;
+    transition-duration: .4s;
+}
+
+.menu a:hover {
+    color: white;
+    background-color: #121435;
+    border-left: solid 10px white;
+    width: calc(100% - 10px);
+}
+
+.menu a:active {
+    color: white;
+    background-color: #2b2f6b;
+    border-left: solid 10px white;
+    width: calc(100% - 10px);
+}
+
+
+
+/* .menu a:focus{
+    color:#161B5F;
+} */
+
+/* .menu a:visited{
+    color:rgb(0, 255, 191);
+} */
+
+.content {
+    width: 75%;
+}
+
+.droite {
+    width: 25%;
+    margin-left: 25px;
+}
+
+.ville {
+    color: #050724;
+
+    font-weight: bold;
+}
+
+.ojd {
+    display: flex;
+    width: 100%;
+}
+
+/* https://media.label.photo/2020/10/ville-le-havre-1.jpg */
+
+.hero {
+    background: linear-gradient(to bottom, #2b2f6b, #18ffff91), url(https://www.campus-lehavre-normandie.fr/sites/default/files/styles/img__1920x1057__crop_main/public/media/images/photo-header.jpg?itok=dIk53k6Q) center/cover;
+    width: 100%;
+    height: 40vh;
+    position: relative;
+}
+
+.ico {
+
+    position: absolute;
+    top: 10px;
+    left: 10px
+}
+
+.temperature {
+    font-size: 2.2rem;
+    position: absolute;
+    color: white;
+    top: 72px;
+    left: 184px;
+}
+
+.block1 {
+
+    margin: 1%;
+    padding: 20px;
+    width: 18%;
+    text-align: center;
+    border: solid 1px rgb(206, 206, 206);
+}
+
+.block1 h3 {
+    font-weight: 100;
+    color: #f0854b;
+}
+
+.block1 p {
+    font-weight: 800;
+}
+
+.block2 {
+    margin: 1%;
+    padding: 20px;
+    width: 38%;
+    text-align: center;
+    border: solid 1px rgb(206, 206, 206);
+}
+
+.block2 h3 {
+    font-weight: 100;
+    color: #f0854b;
+}
+
+.block2 p {
+    font-weight: 800;
+}
+
+.journee {
+    margin-top: 25px;
+    display: flex;
+    width: 100%;
+}
+
+.temperatures {
+    background-color: #f7f6fd;
+    width: calc(100% /8);
+    box-shadow: 1px 1px 19px 5px rgba(0, 0, 0, 0.09);
+    /* width: 20%; */
+    text-align: center;
+    border-right: solid 1px rgb(231 230 230);
+    padding: 10px;
+}

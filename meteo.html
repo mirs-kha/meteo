@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style3.css">
+    <title>Meteo</title>
+</head>
+
+<body>
+    <div class="all">
+
+        <div class="menu">
+            <a href="#">Accueil</a>
+            <a href="#">Football</a>
+            <a href="#">Cinema</a>
+            <a href="#" class="active">Meteo</a>
+            <a href="#">Cryptomonnaie</a>
+        </div>
+
+        <div class="contenu">
+            <input type="text"  placeholder="choisissez votre ville :"  id="in"><input type="button" id="valid" class="btn btn--primary" value="Changer de ville" >
+            <div class="contenuetdroite">
+
+
+
+
+
+
+
+                <div class="content">
+
+                    <div class="ville"></div>
+                    <div class="hero">
+                        <div class="ico"></div>
+                        <div class="temperature"></div>
+
+                    </div>
+                    <h3>Les informations du moment:</h3>
+                    <div class="ojd">
+
+                        <div class="block1" id="ressenti">
+                        </div>
+                        <div class="block1" id="humidite">
+                        </div>
+                        <div class="block1" id="vent">
+                        </div>
+                        <div class="block2" id="ephemeride">
+                        </div>
+                    </div>
+
+                    <h2 style="text-align:center; text-transform: uppercase; margin-top: 30px; color: #f0854b">tout au
+                        long de
+                        la journée:</h2>
+                    <div class="journee"></div>
+
+
+
+                </div>
+
+                <div class="droite">
+                    <div class="minmax">
+                        <div id="minmaxaafficher"></div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="fetch.js"></script>
+
+</body>
+
+</html>
