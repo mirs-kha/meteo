@@ -1,4 +1,5 @@
 export async function searchTown() {
+    const valid = document.querySelector('#valid');
     valid.addEventListener("click", async function () {
         // Notez que vous devez réaffecter la valeur renvoyée à la variable villeActuelle
         villeActuelle = await recupererForm();
