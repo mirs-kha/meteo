@@ -55,14 +55,6 @@ async function singleWeather(villeActuelle) {
         ville.innerHTML = `<h2>Ville actuelle:</h2><h3>${data.city.name}</h3>`
         temperature.innerHTML = `<h2>${lister[0].main.temp}°C</h2>`
 
-
-
-        console.log(data.city.sunrise);
-        console.log(data.city.sunset);
-        console.log(lister[0].main.temp);
-        console.log(lister[0].weather[0].description);
-
-
     } catch (error) {
         console.error(`error: ${error}`);
     }
@@ -80,25 +72,14 @@ async function singleWeatherInfos(villeActuelle) {
         }
         const data = await reponse.json();
         const lister = data.list
+        const heureLever = new Date(data.city.sunrise * 1000).toLocaleTimeString('fr-FR', { timeZone: 'UTC', hour: '2-digit', minute: '2-digit' });
+        const heureCouche = new Date(data.city.sunset * 1000).toLocaleTimeString('fr-FR', { timeZone: 'UTC', hour: '2-digit', minute: '2-digit' });
 
         lister[0].wind.speed = lister[0].wind.speed * 3.6
         humidite.innerHTML = `<h3>Humidité :</h3><p>${lister[0].main.humidity}%</p>`
         vent.innerHTML = `<h3>Vent :</h3><p>${parseInt(lister[0].wind.speed)}km/h</p>`
         ressenti.innerHTML = `<h3>Ressenti :</h3><p>${lister[0].main.feels_like}°C</p>`
-
-
-
-        const heureLever = new Date(data.city.sunrise * 1000).toLocaleTimeString('fr-FR', { timeZone: 'UTC', hour: '2-digit', minute: '2-digit' });
-        const heureCouche = new Date(data.city.sunset * 1000).toLocaleTimeString('fr-FR', { timeZone: 'UTC', hour: '2-digit', minute: '2-digit' });
-
         ephemeride.innerHTML = `<h3>Ephéméride :</h3><p>Up: ${heureLever}   Down: ${heureCouche}</p>`
-
-
-        console.log(data.city.sunrise);
-        console.log(data.city.sunset);
-        console.log(lister[0].main.temp);
-        console.log(lister[0].weather[0].description);
-
 
     } catch (error) {
         console.error(`error: ${error}`);
@@ -118,8 +99,6 @@ async function singleWeatherAllDay(villeActuelle) {
         }
         const data = await reponse.json();
         const weatherList = data.list;
-        console.log(data.list)
-
         const temperaturesArray = [];
 
         for (const [index, weather] of weatherList.entries()) {
