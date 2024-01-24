@@ -1,3 +1,4 @@
+import { fetchWeatherWeek } from "./weekWeather.js"
 const ico = document.querySelector('.ico')
 const ville = document.querySelector('.ville')
 const temperature = document.querySelector('.temperature')
@@ -10,12 +11,11 @@ const journee = document.querySelector('.journee')
 export async function singleWeather(villeActuelle) {
     try {
         const reponse = await fetch(
-            `https://api.openweathermap.org/data/2.5/forecast?q=${villeActuelle},fr&appid=ea54d3f7f009441e82ecb645fb071f6c&lang=fr&units=metric&cnt=1`);
+            `https://api.openweathermap.org/data/2.5/forecast?q=${villeActuelle}&appid=ea54d3f7f009441e82ecb645fb071f6c&lang=fr&units=metric&cnt=1`);
         if (!reponse.ok) {
             throw new Error(`HTTP error : ${reponse.status}`);
         }
         const data = await reponse.json();
-
         const lister = data.list
 
         ico.innerHTML = `<img src="https://openweathermap.org/img/wn/${lister[0].weather[0].icon}@4x.png" />`
@@ -30,12 +30,11 @@ export async function singleWeather(villeActuelle) {
 export async function singleWeatherInfos(villeActuelle) {
     try {
         const reponse = await fetch(
-            `https://api.openweathermap.org/data/2.5/forecast?q=${villeActuelle},fr&appid=ea54d3f7f009441e82ecb645fb071f6c&lang=fr&units=metric&cnt=1`);
+            `https://api.openweathermap.org/data/2.5/forecast?q=${villeActuelle}&appid=ea54d3f7f009441e82ecb645fb071f6c&lang=fr&units=metric&cnt=1`);
         if (!reponse.ok) {
             throw new Error(`HTTP error : ${reponse.status}`);
         }
         const data = await reponse.json();
-
         const lister = data.list
         const heureLever = new Date(data.city.sunrise * 1000).toLocaleTimeString('fr-FR', { timeZone: 'UTC', hour: '2-digit', minute: '2-digit' });
         const heureCouche = new Date(data.city.sunset * 1000).toLocaleTimeString('fr-FR', { timeZone: 'UTC', hour: '2-digit', minute: '2-digit' });
@@ -54,12 +53,11 @@ export async function singleWeatherInfos(villeActuelle) {
 export async function singleWeatherAllDay(villeActuelle) {
     try {
         const reponse = await fetch(
-            `https://api.openweathermap.org/data/2.5/forecast?q=${villeActuelle},fr&appid=ea54d3f7f009441e82ecb645fb071f6c&lang=fr&units=metric&cnt=9`);
+            `https://api.openweathermap.org/data/2.5/forecast?q=${villeActuelle}&appid=ea54d3f7f009441e82ecb645fb071f6c&lang=fr&units=metric&cnt=9`);
         if (!reponse.ok) {
             throw new Error(`HTTP error : ${reponse.status}`);
         }
         const data = await reponse.json();
-
         const weatherList = data.list;
         const temperaturesArray = [];
 
@@ -67,7 +65,6 @@ export async function singleWeatherAllDay(villeActuelle) {
             if (index === 0) {
                 continue; // Passe à l'itération suivante si l'index est 0
             }
-
             let heures = new Date(weather.dt_txt).getHours();
             let minutes = new Date(weather.dt_txt).getMinutes();
 
@@ -84,3 +81,28 @@ export async function singleWeatherAllDay(villeActuelle) {
         console.error(`error: ${error}`);
     }
 }
+
+
+export async function searchTown() {
+    const valid = document.querySelector('#valid');
+    let villeActuelle
+    valid.addEventListener("click", async function () {
+        // Notez que vous devez réaffecter la valeur renvoyée à la variable villeActuelle
+        villeActuelle = await recupererForm();
+        console.log(villeActuelle);
+        // Vous pouvez appeler les fonctions qui dépendent de villeActuelle ici
+        singleWeather(villeActuelle);
+        singleWeatherInfos(villeActuelle);
+        singleWeatherAllDay(villeActuelle);
+        fetchWeatherWeek(villeActuelle);
+    });
+
+    async function recupererForm() {
+        const getTown = document.querySelector('#in').value;
+        console.log(getTown);
+        // Renvoie la nouvelle valeur de villeActuelle
+        return getTown;
+    }
+}
+
+
