@@ -1,4 +1,5 @@
-
+import { nope } from "./fetchCinema.js"
+import { searchTown } from "./searchTown.js"
 const ico = document.querySelector('.ico')
 const ville = document.querySelector('.ville')
 const humidite = document.querySelector('#humidite')
@@ -6,11 +7,11 @@ const vent = document.querySelector('#vent')
 const ressenti = document.querySelector('#ressenti')
 const ephemeride = document.querySelector('#ephemeride')
 const temperature = document.querySelector('.temperature')
-
+nope()
 const journee = document.querySelector('.journee')
 
 
-const valid = document.querySelector('#valid');
+
 
 if (document.querySelector('#in').value === '') {
     var villeActuelle = "havre"
@@ -21,25 +22,7 @@ else {
     var villeActuelle = document.querySelector('#in').value;
 }
 
-async function searchTown() {
-    valid.addEventListener("click", async function () {
-        // Notez que vous devez réaffecter la valeur renvoyée à la variable villeActuelle
-        villeActuelle = await recupererForm();
-        console.log(villeActuelle);
-        // Vous pouvez appeler les fonctions qui dépendent de villeActuelle ici
-        singleWeather(villeActuelle);
-        singleWeatherInfos(villeActuelle);
-        singleWeatherAllDay(villeActuelle);
-        fetchWeatherMinMax(villeActuelle);
-    });
 
-    async function recupererForm() {
-        const getTown = document.querySelector('#in').value;
-        console.log(getTown);
-        // Renvoie la nouvelle valeur de villeActuelle
-        return getTown;
-    }
-}
 searchTown()
 async function singleWeather(villeActuelle) {
     try {
