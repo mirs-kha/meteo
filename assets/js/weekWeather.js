@@ -51,7 +51,7 @@ export async function fetchWeatherWeek(villeActuelle) {
             const date = new Date(jour);
             // Obtenir le nom du jour
             const nomJour = obtenirNomJour(date.getDay());
-            minMaxArray.push(`<div>${nomJour}: Min ${parseInt(tempParJour[jour].minTemperature)}°C, Max ${parseInt(tempParJour[jour].maxTemperature)}°C</div>`)
+            minMaxArray.push(`<div class="days"><div class="day">${nomJour}</div> <div class="dayTemp"><img src="assets/img/arrow.png" class="arrowdown" />  ${parseInt(tempParJour[jour].minTemperature)}°C, <img src="assets/img/arrow.png" class="arrowup" />  ${parseInt(tempParJour[jour].maxTemperature)}°C</div></div>`)
             minmaxContainer.innerHTML = minMaxArray.join('');
         }
 

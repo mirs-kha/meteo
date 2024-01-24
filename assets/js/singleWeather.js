@@ -43,7 +43,7 @@ export async function singleWeatherInfos(villeActuelle) {
         humidite.innerHTML = `<h3>Humidité :</h3><p>${lister[0].main.humidity}%</p>`
         vent.innerHTML = `<h3>Vent :</h3><p>${parseInt(lister[0].wind.speed)}km/h</p>`
         ressenti.innerHTML = `<h3>Ressenti :</h3><p>${lister[0].main.feels_like}°C</p>`
-        ephemeride.innerHTML = `<h3>Ephéméride :</h3><p>Up: ${heureLever}   Down: ${heureCouche}</p>`
+        ephemeride.innerHTML = `<h3>Ephéméride :</h3><p><img src="assets/img/arrow.png" class="arrowup" /> ${heureLever}   <img src="assets/img/arrow.png" class="arrowdown" /> ${heureCouche}</p>`
 
     } catch (error) {
         console.error(`error: ${error}`);

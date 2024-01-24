@@ -55,40 +55,41 @@ input[type=button] {
     margin-left: 1;
 }
 
+
 .btn {
     display: inline-block;
     background: transparent;
     color: inherit;
     font: inherit;
-    border: 0;
-    outline: 0;
-    padding: 0;
-    transition: all 200ms ease-in;
+    border: 0px;
+    outline: 0px;
+    padding: 0px;
+    transition: all 200ms ease-in 0s;
     cursor: pointer;
 }
 
 .btn--primary {
-    background: #7f8ff4;
-    color: #fff;
-    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+    background: rgb(127, 143, 244);
+    color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px 2px;
     border-radius: 2px;
     padding: 12px 36px;
 }
 
 .btn--primary:hover {
-    background: #2b2f6b;
+    background: rgb(43, 47, 107);
     color: white;
 }
 
 .btn--primary:active {
-    background: #7f8ff4;
-    box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.2);
+    background: rgb(127, 143, 244);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px 2px inset;
 }
 
 .menu {
     width: 14%;
     height: 100vh;
-    background-color: #050724;
+    background-color: rgb(5, 7, 36);
     margin-right: 25px;
     display: flex;
     flex-direction: column;
@@ -97,39 +98,29 @@ input[type=button] {
 }
 
 .menu a {
-    color: #ffffff;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     margin-bottom: 10px;
     height: 80px;
     line-height: 80px;
     width: 100%;
     text-align: center;
-    transition-duration: .4s;
+    transition-duration: 0.4s;
 }
 
 .menu a:hover {
     color: white;
-    background-color: #121435;
-    border-left: solid 10px white;
+    background-color: rgb(18, 20, 53);
+    border-left: 10px solid white;
     width: calc(100% - 10px);
 }
 
 .menu a:active {
     color: white;
-    background-color: #2b2f6b;
-    border-left: solid 10px white;
+    background-color: rgb(43, 47, 107);
+    border-left: 10px solid white;
     width: calc(100% - 10px);
 }
-
-
-
-/* .menu a:focus{
-    color:#161B5F;
-} */
-
-/* .menu a:visited{
-    color:rgb(0, 255, 191);
-} */
 
 .content {
     width: 75%;
@@ -138,11 +129,11 @@ input[type=button] {
 .droite {
     width: 25%;
     margin-left: 25px;
+    margin-top: 40px;
 }
 
 .ville {
-    color: #050724;
-
+    color: rgb(5, 7, 36);
     font-weight: bold;
 }
 
@@ -151,20 +142,17 @@ input[type=button] {
     width: 100%;
 }
 
-/* https://media.label.photo/2020/10/ville-le-havre-1.jpg */
-
 .hero {
-    background: linear-gradient(to bottom, #2b2f6b, #18ffff91), url(https://www.campus-lehavre-normandie.fr/sites/default/files/styles/img__1920x1057__crop_main/public/media/images/photo-header.jpg?itok=dIk53k6Q) center/cover;
+    background: linear-gradient(rgb(43, 47, 107), rgb(240 133 75 / 57%)), url(https://www.campus-lehavre-normandie.fr/sites/default/files/styles/img__1920x1057__crop_main/public/media/images/photo-header.jpg?itok=dIk53k6Q) center center / cover;
     width: 100%;
     height: 40vh;
     position: relative;
 }
 
 .ico {
-
     position: absolute;
     top: 10px;
-    left: 10px
+    left: 10px;
 }
 
 .temperature {
@@ -176,17 +164,16 @@ input[type=button] {
 }
 
 .block1 {
-
     margin: 1%;
     padding: 20px;
     width: 18%;
     text-align: center;
-    border: solid 1px rgb(206, 206, 206);
+    border: 1px solid rgb(206, 206, 206);
 }
 
 .block1 h3 {
     font-weight: 100;
-    color: #f0854b;
+    color: rgb(240, 133, 75);
 }
 
 .block1 p {
@@ -198,12 +185,12 @@ input[type=button] {
     padding: 20px;
     width: 38%;
     text-align: center;
-    border: solid 1px rgb(206, 206, 206);
+    border: 1px solid rgb(206, 206, 206);
 }
 
 .block2 h3 {
     font-weight: 100;
-    color: #f0854b;
+    color: rgb(240, 133, 75);
 }
 
 .block2 p {
@@ -217,11 +204,38 @@ input[type=button] {
 }
 
 .temperatures {
-    background-color: #f7f6fd;
-    width: calc(100% /8);
-    box-shadow: 1px 1px 19px 5px rgba(0, 0, 0, 0.09);
-    /* width: 20%; */
+    background-color: rgb(247, 246, 253);
+    width: calc(12.5%);
+    box-shadow: rgba(0, 0, 0, 0.09) 1px 1px 19px 5px;
     text-align: center;
-    border-right: solid 1px rgb(231 230 230);
+    border-right: 1px solid rgb(231, 230, 230);
     padding: 10px;
 }
+
+.days {
+    display: flex;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 10px;
+    align-items: center;
+    margin: 15px;
+}
+
+.day {
+    margin-right: 10px;
+    padding: 20px;
+    background: rgb(5, 7, 36);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    min-width: 140px;
+    text-align: center;
+    box-shadow: 5px 1px 5px 5px rgb(0 0 0 / 10%);
+}
+.arrowup {
+width: 20px;
+
+}
+
+.arrowdown {
+    width: 20px;
+    transform: rotate(180deg);
+    }
