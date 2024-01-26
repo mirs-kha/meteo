@@ -1,5 +1,5 @@
-import { singleWeather, singleWeatherInfos, singleWeatherAllDay, searchTown } from "./singleWeather.js"
-import { fetchWeatherWeek } from "./weekWeather.js"
+import { singleWeather, singleWeatherInfos, singleWeatherAllDay, searchTown } from "./components/weather/singleWeather.js"
+import { fetchWeatherWeek } from "./components/weather/weekWeather.js"
 
 if (document.querySelector('#in').value === '') {
     var villeActuelle = "havre"
