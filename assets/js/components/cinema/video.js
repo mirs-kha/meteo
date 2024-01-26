@@ -2,61 +2,59 @@ import { api } from "../../utilities.js";
 const apiKey = api();
 
 const hero = document.querySelector('.heroCine');
-const nombreAleatoire = Math.floor(Math.random() * 20);
+// const nombreAleatoire = Math.floor(Math.random() * 20);
 
-async function nowVideoId() {
-    try {
-        const reponse = await fetch(
-            `https://api.themoviedb.org/3/movie/now_playing?language=fr-FR&page=1&api_key=${apiKey}`
-        );
+// async function nowVideoId() {
+//     try {
+//         const reponse = await fetch(
+//             `https://api.themoviedb.org/3/movie/now_playing?language=fr-FR&page=1&api_key=${apiKey}`
+//         );
 
-        if (!reponse.ok) {
-            throw new Error(`HTTP error : ${reponse.status}`);
-        }
+//         if (!reponse.ok) {
+//             throw new Error(`HTTP error : ${reponse.status}`);
+//         }
 
-        const data = await reponse.json();
-        const nowPlaying = data.results;
+//         const data = await reponse.json();
+//         const nowPlaying = data.results;
 
-        if (nowPlaying.length > 0) {
-            const randomIndex = Math.floor(Math.random() * nowPlaying.length);
-            return nowPlaying[randomIndex].id;
-        } else {
-            throw new Error("Aucun film en cours de lecture actuellement.");
-        }
-    } catch (error) {
-        console.error(`error: ${error}`);
-        throw error; // Répéter l'erreur pour que l'appelant puisse la gérer
-    }
-}
+//         if (nowPlaying.length > 0) {
+//             const randomIndex = Math.floor(Math.random() * nowPlaying.length);
+//             return nowPlaying[randomIndex].id;
+//         } else {
+//             throw new Error("Aucun film en cours de lecture actuellement.");
+//         }
+//     } catch (error) {
+//         console.error(`error: ${error}`);
+//         throw error; // Répéter l'erreur pour que l'appelant puisse la gérer
+//     }
+// }
 
 
-// Utiliser `async` ici
-async function handleNowVideoId() {
-    try {
-        const nowPlayingList = await nowVideoId();
+// // Utiliser `async` ici
+// async function handleNowVideoId() {
+//     try {
+//         const nowPlayingList = await nowVideoId();
        
 
-        await video(nowPlayingList)
-    } catch (error) {
+//         await video(nowPlayingList)
+//     } catch (error) {
         
-        console.error(`Une erreur s'est produite : ${error.message}`);
-    }
-}
+//         console.error(`Une erreur s'est produite : ${error.message}`);
+//     }
+// }
 
-// Appeler la fonction qui gère la liste maintenant
-handleNowVideoId();
-
-
+// // Appeler la fonction qui gère la liste maintenant
+// handleNowVideoId();
 
 
-export async function video(movieId) {
+
+
+export async function video() {
     try {
-        if (!movieId) {
-            throw new Error("ID de film non valide");
-        }
+
 
         const reponse = await fetch(
-            `https://api.themoviedb.org/3/movie/${movieId}/videos?language=fr-FR&region=fr`
+            `https://api.themoviedb.org/3/movie/572802/videos?language=fr-FR&region=fr`
         );
         
         if (!reponse.ok) {
@@ -66,14 +64,12 @@ export async function video(movieId) {
         const data = await reponse.json();
         const video = data.results;
 
-        if (video.length > 0) {
+
             hero.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${video[0].key}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
-        } else {
-            throw new Error("Aucune vidéo disponible pour ce film.");
-        }
+
     } catch (error) {
         // Traitez l'erreur ici ou laissez-la être répétée selon vos besoins
-         await video(572802)
+
         console.error(`error: ${error}`);
         // Vous pouvez décider ici si vous voulez réessayer avec un nouvel ID, ou afficher un message d'erreur, etc.
     }
