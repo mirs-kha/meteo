@@ -54,7 +54,13 @@ export async function video() {
 
 
         const reponse = await fetch(
-            `https://api.themoviedb.org/3/movie/572802/videos?language=fr-FR&region=fr`
+            `https://api.themoviedb.org/3/movie/572802/videos?language=fr-FR&region=fr`, {
+                method: 'GET',
+                headers: {
+                    accept: 'application/json',
+                    Authorization: 'Bearer es'
+                }
+            }
         );
         
         if (!reponse.ok) {

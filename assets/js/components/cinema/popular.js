@@ -1,5 +1,7 @@
 import {  api, modal } from "../../utilities.js"
+import { video } from "./video.js"
 const apiKey = api();
+
 const populaire = document.querySelector('.populaire')
 
 export async function popular() {
@@ -16,7 +18,7 @@ export async function popular() {
         const nowPopular = data.results.slice(0, 5)
 
         for (const popular of nowPopular) {
-
+            
             populaire.innerHTML += `
             <div class="moments">
                 <h3>${popular.title}</h3>
@@ -34,6 +36,7 @@ export async function popular() {
                         <div style="display:flex">
                             <div><img src="https://image.tmdb.org/t/p/w500/${popular.poster_path}" /></div>
                             <div style="padding: 0 30px;">
+                            
                                 <p>${popular.overview}</p>
                                 <p>Date de sortie : <strong>${popular.release_date}</strong></p>
                             </div>
