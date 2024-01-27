@@ -58,7 +58,7 @@ export async function video() {
                 method: 'GET',
                 headers: {
                     accept: 'application/json',
-                    Authorization: 'Bearer es'
+                    Authorization: 'Bearer Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNGUzN2Y1YTU4ZTQ3ZGIwMGY4NTkyODU3OWY5MDBmOCIsInN1YiI6IjY0NmUxNjEzMzNhMzc2MDE1OGRjMDRhZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.10TTdpPPusGwjBn81duAdGN3P84qd250flrJJOeCyEs'
                 }
             }
         );
