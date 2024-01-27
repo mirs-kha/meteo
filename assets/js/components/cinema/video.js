@@ -57,9 +57,7 @@ export async function video() {
             `https://api.themoviedb.org/3/movie/572802/videos?language=fr-FR&region=fr&api_key=${apiKey}`
         );
         
-        if (!reponse.ok) {
-            throw new Error(`HTTP error : ${reponse.status}`);
-        }
+
 
         const data = await reponse.json();
         const video = data.results;
